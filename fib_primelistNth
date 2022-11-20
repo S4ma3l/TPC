@@ -1,0 +1,39 @@
+#fibonacci series
+def fibonacci(len):
+    first =0
+    second =1
+    res = 0
+    if(len==1):
+        return 0
+    elif(len==2):
+        return 1
+    for i in range(1, len-1):
+        res = first+second
+        first= second
+        second = res
+    return (res)
+
+def primeOrNot(num):
+
+    for i in range(2,num):
+        if num%i==0:
+            return False
+    return True
+#print(primeOrNot(int(input("Enter a number to check whether it's prime or not"))))
+def returnnthPrime(nthNumber):
+    count = 0
+    numToCheck =1
+    while (count!=nthNumber):
+        numToCheck += 1
+        if primeOrNot(numToCheck):
+            count +=1
+    return numToCheck
+
+
+i=0
+nth = int(input("Enter the position"))
+if(nth%2!=0):
+    print(fibonacci(nth))
+else:
+    print(returnnthPrime(nth/2))
+
